@@ -32,6 +32,9 @@ class voiture{
     public static function getVitesseMax(){
         return self::$vitesseMax;
     }
+    public static function getNbV(){
+        return self::$nbV;
+    }
     public function ShowVoiture(){
         return "marque de la voiture : ".$this->marque." prix de la voiture : ".$this->voiture."couleur de la voiture : ".$this->voiture;
     }
@@ -41,7 +44,8 @@ $v2=new Voiture("gris metallique","4M","porsche");
 $v3=new Voiture("rouge","4M", "bmw");
 $Voitures=array($v1,$v2,$v3);
 ?>
-<h2 align='center'>Mes voitures </h2>
+<h2 align='center'>Mes voitures <?php echo Voiture::getNbV();?></h2>
+<h3 align='center'>Vitesse maximale : <?php echo Voiture::getVitesseMax();?></h3>
 <table align='center' border='1'>
 <tr><th>Marque</th><th>Prix</th><th>Couleur</th></tr>
 <?php
