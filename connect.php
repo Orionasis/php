@@ -6,7 +6,7 @@ class PDOConnexion
     private $base;
     private $username;
     private $password;
-    private $db=null;
+    private $pdo=null;
 
  
    public function __construct()
@@ -21,22 +21,20 @@ class PDOConnexion
     public function createConnexion(){
         try {
             //creation de l'objet PDO
-            $db = new PDO("mysql:host=$this->serveur;dbname=$this->base","$this->username","$this->password");
+            $pdo = new PDO("mysql:host=$this->serveur;dbname=$this->base","$this->username","$this->password");
            
-           if($db != null) echo "Connexion réussi";
-         
+           if($pdo != null) //echo "Connexion réussi";
+            return $pdo;
             } catch (PDOException $e){ //erreur de connexion à la basse
             print "Erreur : ".$e->getMessage();
             die();
             }
             
     }
-    public function deleteConnexion(){
-        $db=null;
-            
+    public function __destruct()
+    {
+        $pdo=null;  
     }
 }
-
-$conn = new PDOConnexion();
-$conn->createConnexion();
+?>
 ?>
