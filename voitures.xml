@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<liste>
+    <voitures>
+	    <marque>BMW</marque>
+	    <modele>M8</modele>
+        <immatriculation>....</immatriculation>
+        <prix>20000</prix>
+    </voitures>
+    <voitures>
+        <marque>Lamborghini</marque>
+        <modele>Huracan Super Trofeo EVO</modele>
+        <immatriculation>....</immatriculation>
+        <prix>250000</prix>
+    </voitures>
+</liste>
