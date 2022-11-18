@@ -10,7 +10,7 @@ class PDOConnexion
  
    public function __construct()
     {
-        require_once("ConfigDB.php");
+        require_once("config.php");
         $this->serveur = $serveur;
         $this->base = $base;
         $this->username = $username;

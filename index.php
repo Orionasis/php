@@ -45,7 +45,7 @@
   <tbody>
     <?php
         // récupération des produits de la base via PDO
-        require_once(dirname(__FILE__)."connect.php");
+        require_once("connect.php");
         $pdoConnexion = new PDOConnexion();
         $pdo = $pdoConnexion->createConnexion();
         $strSQL = "SELECT * FROM produit";

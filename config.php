@@ -1,7 +1,7 @@
 <?php
     //les paramètres de connexion
      $serveur="localhost";
-     $base="projetphp";
+     $base="projphp";
      $username="root";
      $password="";
 ?>
