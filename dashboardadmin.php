@@ -1,3 +1,7 @@
+<?php
+session_start();
+if($_SESSION["email"]&&$_SESSION["role"]=="admin"){
+?>
 <html>
 <head>
 <meta charset="UTF-8"/>
@@ -23,6 +27,7 @@
       <li class="nav-item">
         <a class="nav-link" href="logout.php">Déconnexion</a>
       </li>
+      <li class="nav-item" style="margin-left:650px"><a class="nav-link">Bonjour <?php echo $_SESSION["email"];?></a></li>
     </ul>
   </div>
 </nav>
@@ -81,4 +86,6 @@
 </html>
 
 <?php
+}
+else{header('location:login.php');}
 ?>
