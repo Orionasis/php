@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION["email"]&&$_SESSION["role"]=="admin"){
+if ($_SESSION["email"] && $_SESSION["role"]=="admin") {
 ?>
 <html>
 <head>
@@ -27,7 +27,10 @@ if($_SESSION["email"]&&$_SESSION["role"]=="admin"){
       <li class="nav-item">
         <a class="nav-link" href="logout.php">Déconnexion</a>
       </li>
-      <li class="nav-item" style="margin-left:650px"><a class="nav-link">Bonjour <?php echo $_SESSION["email"];?></a></li>
+
+      <li class="nav-item" style="margin-left:600px">
+        <a class="nav-link">Bonjour <?php echo $_SESSION["email"];?></a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -54,14 +57,14 @@ if($_SESSION["email"]&&$_SESSION["role"]=="admin"){
   </thead>
   <tbody>
     <?php
-        // récupération des produits de la base via PDO
-        require_once("connect.php");
-        $pdoConnexion = new PDOConnexion();
-        $pdo = $pdoConnexion->createConnexion();
-        $strSQL = "SELECT * FROM produit";
-        //execution de la requête et affichage des résultats
-        foreach ($pdo->query($strSQL) as $row) {
-            ?>
+            // récupération des produits de la base via PDO
+            require_once("connect.php");
+    $pdoConnexion = new PDOConnexion();
+    $pdo = $pdoConnexion->createConnexion();
+    $strSQL = "SELECT * FROM produit";
+    //execution de la requête et affichage des résultats
+    foreach ($pdo->query($strSQL) as $row) {
+        ?>
             <tr>
                 <td><?php echo $row['id'];?></td>
                 <td><img  width="20%" src="<?php echo $row['photo'];?>" /></td>
@@ -70,12 +73,12 @@ if($_SESSION["email"]&&$_SESSION["role"]=="admin"){
                 <td><?php echo $row['prix'];?></td>
                 <td><?php echo $row['disponibilite'];?></td>
                 <td><a href="#" class="btn btn-warning">Modifier</a></td>
-                <td><a href="#" class="btn btn-danger">Supprimer</a></td>
+                <td><td><a href="deleteproduit.php?id=<?php echo $row['id'];?>" class="btn btn-danger">Supprimer</a></td>
             </tr>
             
     
     <?php
-        }
+    }
     ?>
 
   </tbody>
@@ -87,5 +90,8 @@ if($_SESSION["email"]&&$_SESSION["role"]=="admin"){
 
 <?php
 }
-else{header('location:login.php');}
+else
+{
+  header('Location:signin.html');
+}
 ?>
