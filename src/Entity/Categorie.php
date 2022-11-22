@@ -5,25 +5,35 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\CategorieRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Put;
+use ApiPlatform\Metadata\Post;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 #[ApiResource]
+#[Post()]
+#[GetCollection(normalizationContext:['groups'=>['getAll']])]
+#[Get()]
+#[Put()]
+
 class Categorie
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
+#[Groups(['getAll'])]
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
-
+    #[Groups(['getAll'])]
     #[ORM\Column(length: 255)]
     private ?string $pays = null;
-
+    #[Groups(['getAll'])]
     #[ORM\Column(length: 255)]
     private ?string $ville = null;
-
+#[Groups(['getAll'])]
     #[ORM\Column]
     private ?\DateTimeImmutable $createAt = null;
 
